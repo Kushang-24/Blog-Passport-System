@@ -133,7 +133,7 @@ const login = (req, res) => {
 
 
 const logout = (req, res) => {
-    req.logout((err) => {
+    req.logOut((err) => {
         if (err) {
             console.error("Error during logout:", err);
             return next(err);
