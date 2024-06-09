@@ -110,26 +110,26 @@ const signup = async(req,res)=>{
         console.log("Error during sign-up:", error);
     }
 }
-const login = (req, res) => {
-    passport.authenticate('local', (err, user) => {
-        if (err) {
-            console.log("Error during authentication:", err);
-            return res.redirect('/login');
-        }
-        if (!user) {
-            console.log("Authentication failed");
-            return res.redirect('/login');
-        }
-        req.logIn(user, (err) => {
-            if (err) {
-                console.log("Error during login:", err);
-                return res.redirect('/login');
-            }
-            console.log("Login successful:", user);
-            return res.redirect('/');
-        });
-    })(req, res);
-};
+// const login = (req, res) => {
+//     passport.authenticate('local', (err, user) => {
+//         if (err) {
+//             console.log("Error during authentication:", err);
+//             return res.redirect('/login');
+//         }
+//         if (!user) {
+//             console.log("Authentication failed");
+//             return res.redirect('/login');
+//         }
+//         req.logIn(user, (err) => {
+//             if (err) {
+//                 console.log("Error during login:", err);
+//                 return res.redirect('/login');
+//             }
+//             console.log("Login successful:", user);
+//             return res.redirect('/');
+//         });
+//     })(req, res);
+// };
 
 
 const logout = (req, res) => {
@@ -149,4 +149,4 @@ const signupPage = (req,res)=>{
     return res.render('signup');
 }
 
-module.exports = { home, AddData, update, deleteData, editPage ,login,signup, loginPage, signupPage, logout};
+module.exports = { home, AddData, update, deleteData, editPage ,signup, loginPage, signupPage, logout};

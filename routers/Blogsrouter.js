@@ -32,7 +32,7 @@ module.exports = (upload) => {
     router.post('/signup', signup);
     router.get('/signup', signupPage);
 
-    router.post('/login', passport.authenticate('local', {
+    router.post('/local', passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/login'
     }));
