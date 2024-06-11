@@ -132,15 +132,16 @@ const signup = async(req,res)=>{
 // };
 
 
-const logout = (req, res) => {
-    req.logOut((err) => {
-        if (err) {
-            console.error("Error during logout:", err);
-            return next(err);
-        }
-        res.redirect('/login');
-    });
-};
+const logout =  (req, res) => {
+    req.logOut((err)=>{
+      if(err){
+        console.log(err);
+        return false;
+      }
+      console.log('logout Successfully');
+      return res.redirect('/login')
+    })
+  };
 const loginPage = (req,res)=>{
     return res.render('login');
 }
